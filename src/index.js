@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import RevMaster from './js/components/Rev/RevMaster.jsx';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import dummyData from './test_data/DummyData.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const data = dummyData
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class App extends React.Component {
+    render() {
+
+        return (
+            <Container>
+                <Row>
+                    <Col>
+                        <RevMaster data={data}/>
+                    </Col>
+                </Row>
+            </Container>
+        )
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('react-app'));
