@@ -16,7 +16,7 @@ function SavingsOfferItem(props) {
     return (
         <Row>
             <OfferItem>
-                <Col xs={2}>
+                <Col xs={3}>
                     <Checkbox
                         onChange={props.handleCheckChange}
                         checked={props.checked.get((nameKey))}

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const OfferDetail = styled.p`
-font-size: 12px;
-color: lightgray;
-font-weight: normal;
-padding: 4px;
+color: #C8C8C8;
+font-family: "Ford Antenna";
+font-size: 10px;
+padding: 0px;
 margin: 4px;
 `;
 

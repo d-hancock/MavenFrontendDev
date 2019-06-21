@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import OfferSwitcher from './OfferSwitcher.jsx';
-import Step2 from './Step2.jsx';
+import ContactSelect from './ContactSelect.jsx';
 import Step3 from './Step3.jsx';
 
 class RevMaster extends React.Component {
@@ -76,12 +76,12 @@ class RevMaster extends React.Component {
 
     nextButton() {
         let currentStep = this.state.currentStep;
-        if (currentStep < 3) {
+        if (currentStep = 1 && this.state.checkedItems.size >= 1) {
             return (
                 <button
                     className="btn btn-primary float-right"
                     type="button" onClick={this._next}>
-                    Next
+                    Apply {this.state.checkedItems.size}
                 </button>
             )
         }
@@ -92,9 +92,9 @@ class RevMaster extends React.Component {
         return (
             <React.Fragment>
                 <Container>
-                    <form onSubmit={this.handleSubmit}>
-                        <Row>
-                            <Col>
+                    <Row>
+                        <form onSubmit={this.handleSubmit}>
+                            <Row>
                                 <OfferSwitcher
                                     currentStep={this.state.currentStep}
                                     data={this.props.data}
@@ -102,7 +102,7 @@ class RevMaster extends React.Component {
                                     checked={this.state.checkedItems}
 
                                 />
-                                <Step2
+                                <ContactSelect
                                     currentStep={this.state.currentStep}
                                     handleChange={this.handleChange}
                                 />
@@ -110,15 +110,14 @@ class RevMaster extends React.Component {
                                     currentStep={this.state.currentStep}
                                     handleChange={this.handleChange}
                                 />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={12}>
-                                {this.previousButton()}
-                                {this.nextButton()}
-                            </Col>
-                        </Row>
-                    </form>
+                            </Row>
+                            <Row>
+                                <Col xs={12}>
+                                    {this.nextButton()}
+                                </Col>
+                            </Row>
+                        </form>
+                    </Row>
                 </Container>
             </React.Fragment>
         );

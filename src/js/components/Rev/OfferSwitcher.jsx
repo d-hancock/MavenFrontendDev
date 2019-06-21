@@ -3,7 +3,8 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import OfferContainer from "./OfferContainer.jsx";
-import { RightArrow, LeftArrow } from "./styled/Arrow.jsx";
+import {RightArrow, LeftArrow} from "./styled/Arrow.jsx";
+import TrimTopper from "./TrimTopper.jsx";
 
 
 class OfferSwitcher extends React.Component {
@@ -47,28 +48,20 @@ class OfferSwitcher extends React.Component {
         } else {
             return (
                 <React.Fragment>
-
-                    <h2>PICK YOUR<br/>{this.props.data.vehicle} OFFER</h2>
-                    <div className="row">
-
-                        <LeftArrow direction="left"
-                                          clickFunction={this.previousOffer}
-                                          glyph="&#9664;"
-                        />
-
-                        <OfferContainer index={this.state.currentTrimIndex}
-                                        trim={this.props.data.trim}
-                                        handleCheckChange={this.props.handleCheckChange}
-                                        checked={this.props.checked}
-                        />
-
-
-                        <RightArrow direction="right"
-                                          clickFunction={this.nextOffer}
-                                          glyph="&#9654;"
-                        />
-
-                    </div>
+                    <TrimTopper index={this.state.currentTrimIndex}
+                                trim={this.props.data.trim}
+                                vehicle={this.props.data.vehicle}
+                                bgimg={this.props.data.client.theme.bgimg}
+                                phone={this.props.data.client.phone}
+                                prev={this.previousOffer}
+                                next={this.nextOffer}
+                                phonelink={this.props.data.client.phonelink}
+                    />
+                    <OfferContainer index={this.state.currentTrimIndex}
+                                    trim={this.props.data.trim}
+                                    handleCheckChange={this.props.handleCheckChange}
+                                    checked={this.props.checked}
+                    />
                 </React.Fragment>
             );
         }

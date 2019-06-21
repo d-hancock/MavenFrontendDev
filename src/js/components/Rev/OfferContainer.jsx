@@ -6,40 +6,38 @@ import Image from 'react-bootstrap/Image';
 import FinanceOfferItem from "./FinanceOfferItem.jsx";
 import SavingsOfferItem from "./SavingsOfferItem.jsx";
 import LeaseOfferItem from "./LeaseOfferItem.jsx";
+import BottomOfferWrapper from './styled/BottomOfferWrapper.jsx';
 
 function OfferContainer(props) {
     return (
-        <Container>
-            <Row>
-                <React.Fragment>
-                    <Col xs={12}>
-                        <Image src={props.trim[props.index].imgurl} fluid/>
-                    </Col>
-                    <Col xs={12}>
-                        <SavingsOfferItem trim={props.trim}
-                                          index={props.index}
-                                          handleCheckChange={props.handleCheckChange}
-                                          checked={props.checked}
-                        />
-                    </Col>
-                    <Col xs={12}>
-                        <FinanceOfferItem trim={props.trim}
-                                          index={props.index}
-                                          handleCheckChange={props.handleCheckChange}
-                                          checked={props.checked}
-                        />
-                    </Col>
-                    <Col xs={12}>
+        <BottomOfferWrapper>
+            <React.Fragment>
 
-                        <LeaseOfferItem trim={props.trim}
-                                        index={props.index}
-                                        handleCheckChange={props.handleCheckChange}
-                                        checked={props.checked}
-                        />
-                    </Col>
-                </React.Fragment>
-            </Row>
-        </Container>
+                <Col xs={12}>
+                    <SavingsOfferItem trim={props.trim}
+                                      index={props.index}
+                                      handleCheckChange={props.handleCheckChange}
+                                      checked={props.checked}
+                    />
+                </Col>
+                <Col xs={12}>
+                    <FinanceOfferItem trim={props.trim}
+                                      index={props.index}
+                                      handleCheckChange={props.handleCheckChange}
+                                      checked={props.checked}
+                    />
+                </Col>
+                <Col xs={12}>
+
+                    <LeaseOfferItem trim={props.trim}
+                                    index={props.index}
+                                    handleCheckChange={props.handleCheckChange}
+                                    checked={props.checked}
+                    />
+                </Col>
+            </React.Fragment>
+        </BottomOfferWrapper>
+
     )
 }
 

@@ -3,11 +3,11 @@ import React from "react";
 import render from "react";
 
 
-const SelectArrow = ({ direction, clickFunction, glyph, className }) => (
+const SelectArrow = ({ direction, clickFunction, src, className }) => (
 	<div
 		className={ className }
 		onClick={ clickFunction }>
-		{ glyph }
+		<img src={src}/>
 	</div>
 );
 
@@ -15,23 +15,34 @@ const SelectArrow = ({ direction, clickFunction, glyph, className }) => (
 const StyledArrow = styled(SelectArrow)`
 	cursor: pointer;
 	font-size: 2rem;
-	position: relative;
-	top: 50%;
+	display: inline;
 `;
 
 
 const RightArrow = styled(StyledArrow)`
-right: 1rem;
+;
+position: relative;
 `;
 
 
 const LeftArrow = styled(StyledArrow)`
-left: 1rem;
+position: relative;
+`;
+
+const ArrowContainer = styled.div`
+position: absolute;
+top: 40%;
+transform: translateY(-50%);
+display: flex;
+justify-content: space-between;
+width: 100%;
+z-index: 1;
 `;
 
 export {
     SelectArrow,
     StyledArrow,
     RightArrow,
-    LeftArrow
+    LeftArrow,
+    ArrowContainer,
 }

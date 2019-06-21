@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 const OfferHeading = styled.h3`
-font-size: 24px;
 color: #000;
-font-weight: bold;
+font-family: "Ford Antenna";
+font-size: 18px;
+font-weight: 500;
+margin-left: 4%;
 `;
 
 export default OfferHeading;
